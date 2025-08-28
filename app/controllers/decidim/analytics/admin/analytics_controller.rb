@@ -4,7 +4,6 @@ module Decidim
   module Analytics
     module Admin
       class AnalyticsController < Analytics::Admin::ApplicationController
-
         def index
           @server_address = env_or_secret("DECIDIM_ANALYTICS_MATOMO_SERVER_ADDRESS", :server_address)
           @site_id = env_or_secret("DECIDIM_ANALYTICS_MATOMO_SITE_ID", :site_id)
