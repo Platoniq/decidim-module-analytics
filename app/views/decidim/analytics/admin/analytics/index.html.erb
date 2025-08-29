@@ -14,7 +14,7 @@
         <% if @server_address.present? && @site_id.present? && @token_auth.present? %>
           <div class="analytics-iframe-container">
             <iframe
-              src="<%= matomo_dashboard_url(@server_address, @site_id, @token_auth) %>"
+              src="<%= matomo_dashboard_url %>"
               title="<%= t("decidim.analytics.admin.iframe_title") %>"
               class="analytics-iframe">
             </iframe>
@@ -25,11 +25,10 @@
             <p><%= t("decidim.analytics.admin.configuration_help") %></p>
 
             <h6><%= t("decidim.analytics.admin.configuration_instructions") %></h6>
-            <pre><code># config/secrets.yml
-matomo:
-  server_address: "https://your-matomo-domain.com"
-  site_id: "1"
-  token_auth: "your-token-here"</code></pre>
+            <pre><code># Environment variables
+MATOMO_SERVER_ADDRESS="https://your-matomo-domain.com"
+MATOMO_SITE_ID="1"
+MATOMO_TOKEN_AUTH="your-token-here"</code></pre>
           </div>
         <% end %>
       </div>
