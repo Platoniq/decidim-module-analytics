@@ -1,5 +1,9 @@
 inherit_from: .rubocop_todo.yml
 
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
 inherit_gem:
   decidim-dev: rubocop-decidim.yml
 
@@ -26,3 +30,12 @@ AllCops:
     - "db/migrate/*"
     - "vendor/**/*"
     - "**/vendor/**/*"
+
+RSpec/ExampleLength:
+  Max: 20
+
+RSpec/MultipleExpectations:
+  Max: 3
+
+RSpec/NestedGroups:
+  Max: 5

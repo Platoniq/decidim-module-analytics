@@ -1,0 +1,24 @@
+{
+  "name": "decidim-module-analytics",
+  "version": "1.0.0",
+  "description": "A Decidim analytics module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:js": "eslint 'app/assets/javascripts/**/*.js'",
+    "lint:scss": "stylelint 'app/assets/stylesheets/**/*.scss'",
+    "fix": "npm run fix:js && npm run fix:scss",
+    "fix:js": "eslint 'app/assets/javascripts/**/*.js' --fix",
+    "fix:scss": "stylelint 'app/assets/stylesheets/**/*.scss' --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-or-later",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-standard-scss": "^11.1.0",
+    "stylelint-scss": "^5.3.2"
+  }
+}
