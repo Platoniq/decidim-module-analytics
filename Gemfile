@@ -16,20 +16,19 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-analytics", path: "."
 
 gem "bootsnap", "~> 1.4"
-gem "puma", ">= 5.0.0"
-gem "uglifier", "~> 4.1"
+gem "puma", ">= 6.3.1"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
-  gem "rubocop-performance", "~> 1.15"
-  gem "rubocop-rails", "~> 2.17"
-  gem "rubocop-rspec", "~> 3.0"
+
+  gem "brakeman", "~> 6.1"
+  gem "parallel_tests", "~> 4.2"
+  gem "rubocop-rails", "~> 2.25.1"
 end
 
 group :development do
-  gem "letter_opener_web", "~> 1.3"
+  gem "letter_opener_web", "~> 2.0"
   gem "listen", "~> 3.1"
-  gem "rubocop-faker"
-  gem "web-console", "~> 3.5"
+  gem "web-console", "~> 4.2"
 end

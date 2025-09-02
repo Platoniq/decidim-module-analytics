@@ -4,21 +4,32 @@
   "description": "A Decidim analytics module",
   "main": "index.js",
   "scripts": {
+    "lint:js": "eslint 'app/packs/**/*.js'",
+    "lint:scss": "stylelint 'app/packs/**/*.scss'",
+    "fix:js": "eslint 'app/packs/**/*.js' --fix",
+    "fix:scss": "stylelint 'app/packs/**/*.scss' --fix",
     "lint": "npm run lint:js && npm run lint:scss",
-    "lint:js": "eslint 'app/assets/javascripts/**/*.js'",
-    "lint:scss": "stylelint 'app/assets/stylesheets/**/*.scss'",
     "fix": "npm run fix:js && npm run fix:scss",
-    "fix:js": "eslint 'app/assets/javascripts/**/*.js' --fix",
-    "fix:scss": "stylelint 'app/assets/stylesheets/**/*.scss' --fix"
+    "prettier": "prettier --check '**/*.{js,scss}'",
+    "prettify": "prettier --write '**/*.{js,scss}'"
   },
-  "keywords": [],
+  "keywords": [
+    "decidim"
+  ],
   "author": "",
   "license": "AGPL-3.0-or-later",
+  "stylelint": {
+    "extends": "@decidim/stylelint-config"
+  },
+  "prettier": "@decidim/prettier-config",
+  "eslintConfig": {
+    "extends": "@decidim/eslint-config"
+  },
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "stylelint": "^15.11.0",
-    "stylelint-config-prettier-scss": "^1.0.0",
-    "stylelint-config-standard-scss": "^11.1.0",
-    "stylelint-scss": "^5.3.2"
+    "@decidim/dev": "0.29.4",
+    "@decidim/eslint-config": "0.29.4",
+    "@decidim/prettier-config": "0.29.4",
+    "@decidim/stylelint-config": "0.29.4",
+    "postcss-scss": "^4.0.9"
   }
 }

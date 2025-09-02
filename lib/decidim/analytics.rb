@@ -8,18 +8,18 @@ module Decidim
   # This namespace holds the logic of the `Analytics` component. This component
   # allows users to create analytics in a participatory space.
   module Analytics
-    autoload :Engine, "decidim/analytics/engine"
-
     include ActiveSupport::Configurable
 
-    # Configuración para Matomo
-    def self.matomo
-      @matomo ||= {
-        enabled: ENV["MATOMO_SITE_ID"].present? || Rails.application.secrets.dig(:matomo, :enabled),
-        server_address: ENV.fetch("MATOMO_SERVER_ADDRESS", Rails.application.secrets.dig(:matomo, :server_address)),
-        site_id: ENV.fetch("MATOMO_SITE_ID", Rails.application.secrets.dig(:matomo, :site_id)),
-        token_auth: ENV.fetch("MATOMO_TOKEN_AUTH", Rails.application.secrets.dig(:matomo, :token_auth))
-      }
+    config_accessor :matomo_server_address do
+      ENV.fetch("MATOMO_SERVER_ADDRESS", nil)
+    end
+
+    config_accessor :matomo_site_id do
+      ENV.fetch("MATOMO_SITE_ID", nil)
+    end
+
+    config_accessor :matomo_token_auth do
+      ENV.fetch("MATOMO_TOKEN_AUTH", nil)
     end
   end
 end
