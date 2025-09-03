@@ -5,11 +5,8 @@ module Decidim
     module Admin
       module ApplicationHelper
         def matomo_dashboard_url
-          server_address = Decidim::Analytics.matomo_server_address
-          site_id = Decidim::Analytics.matomo_site_id
-          token_auth = Decidim::Analytics.matomo_token_auth
-
-          return "#" if [server_address, site_id, token_auth].any?(&:blank?)
+          config = Decidim::Analytics.matomo
+          return "#" if config[:server_address].blank? || config[:site_id].blank? || config[:token_auth].blank?
 
           params = {
             module: "Widgetize",
