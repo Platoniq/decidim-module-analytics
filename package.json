@@ -1,8 +1,4 @@
 {
-  "name": "decidim-module-analytics",
-  "version": "1.0.0",
-  "description": "A Decidim analytics module",
-  "main": "index.js",
   "scripts": {
     "lint:js": "eslint 'app/packs/**/*.js'",
     "lint:scss": "stylelint 'app/packs/**/*.scss'",
