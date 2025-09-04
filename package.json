@@ -1,31 +1,32 @@
 {
+  "name": "decidim-analytics",
+  "version": "0.0.1",
+  "description": "A module adding an Analytics tab in the admin panel to embed a Matomo dashboard.",
+  "private": true,
+  "license": "AGPL-3.0",
   "scripts": {
-    "lint:js": "eslint 'app/packs/**/*.js'",
-    "lint:scss": "stylelint 'app/packs/**/*.scss'",
-    "fix:js": "eslint 'app/packs/**/*.js' --fix",
-    "fix:scss": "stylelint 'app/packs/**/*.scss' --fix",
-    "lint": "npm run lint:js && npm run lint:scss",
-    "fix": "npm run fix:js && npm run fix:scss",
-    "prettier": "prettier --check '**/*.{js,scss}'",
-    "prettify": "prettier --write '**/*.{js,scss}'"
+    "lint": "eslint -c .eslintrc.json --ext .js app/packs/",
+    "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/ --fix",
+    "markdownlint": "markdownlint '**/*.md'",
+    "stylelint": "stylelint app/packs/**/*.scss",
+    "stylelint-fix": "stylelint app/packs/**/*.scss --fix",
+    "prettier": "prettier --check 'app/packs/**/*.scss'",
+    "prettify": "prettier --write 'app/packs/**/*.scss'",
+    "linthtml": "linthtml app/**/*.html.erb app/cells/**/*.erb"
   },
-  "keywords": [
-    "decidim"
-  ],
-  "author": "",
-  "license": "AGPL-3.0-or-later",
   "stylelint": {
     "extends": "@decidim/stylelint-config"
   },
   "prettier": "@decidim/prettier-config",
-  "eslintConfig": {
-    "extends": "@decidim/eslint-config"
+  "dependencies": {
+    "@decidim/browserslist-config": "^0.29.4",
+    "@decidim/webpacker": "^0.29.4"
   },
   "devDependencies": {
-    "@decidim/dev": "0.29.4",
-    "@decidim/eslint-config": "0.29.4",
-    "@decidim/prettier-config": "0.29.4",
-    "@decidim/stylelint-config": "0.29.4",
-    "postcss-scss": "^4.0.9"
-  }
+    "@decidim/dev": "^0.29.4",
+    "@decidim/eslint-config": "^0.29.4",
+    "@decidim/prettier-config": "^0.29.4",
+    "@decidim/stylelint-config": "^0.29.4"
+  },
+  "browserslist": ["extends @decidim/browserslist-config"]
 }
